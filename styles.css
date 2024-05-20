@@ -39,3 +39,16 @@ li {
   border: 1px solid #ddd;
   border-radius: 5px;
 }
+
+.bar-one > nav {
+  background-color: #4d9feb;
+  color: #fff;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+.image img img {
+  width: 100%;
+  height: 100%;
+}
