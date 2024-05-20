@@ -1,20 +1,56 @@
 document.addEventListener("DOMContentLoaded", () => {
-  loadTweets();
-});
+  const usersSelect = document.getElementById("users");
+  const postsContainer = document.getElementById("posts");
+  const commentsContainer = document.getElementById("comments");
 
-function loadTweets() {
-  // Placeholder tweets data
-  const tweets = [
-    { username: "user1", content: "This is the first tweet." },
-    { username: "user2", content: "This is the second tweet." },
-    { username: "user3", content: "This is the third tweet." },
-  ];
+  // Fetch and display users in the select box
+  fetch("https://jsonplaceholder.typicode.com/users")
+    .then((response) => response.json())
+    .then((users) => {
+      users.forEach((user) => {
+        const option = document.createElement("option");
+        option.value = user.id;
+        option.textContent = user.username;
+        usersSelect.appendChild(option);
+      });
+      usersSelect.value = 1; // Set default user to user with ID 1
+      loadPosts(1); // Load posts for the default user
+    });
 
-  const tweetsContainer = document.getElementById("tweets");
-  tweets.forEach((tweet) => {
-    const tweetElement = document.createElement("div");
-    tweetElement.className = "tweet";
-    tweetElement.innerHTML = `<strong>@${tweet.username}</strong><p>${tweet.content}</p>`;
-    tweetsContainer.appendChild(tweetElement);
+  usersSelect.addEventListener("change", (event) => {
+    const userId = event.target.value;
+    loadPosts(userId);
   });
-}
+
+  function loadPosts(userId) {
+    postsContainer.innerHTML = "";
+    commentsContainer.innerHTML = "";
+    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+      .then((response) => response.json())
+      .then((posts) => {
+        posts.forEach((post) => {
+          const li = document.createElement("li");
+          li.textContent = post.title;
+          li.dataset.postId = post.id;
+          li.addEventListener("click", () => loadComments(post.id));
+          postsContainer.appendChild(li);
+        });
+        if (posts.length > 0) {
+          loadComments(posts[0].id); // Load comments for the first post by default
+        }
+      });
+  }
+
+  function loadComments(postId) {
+    commentsContainer.innerHTML = "";
+    fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
+      .then((response) => response.json())
+      .then((comments) => {
+        comments.forEach((comment) => {
+          const li = document.createElement("li");
+          li.textContent = comment.body;
+          commentsContainer.appendChild(li);
+        });
+      });
+  }
+});

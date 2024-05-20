@@ -3,24 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Twitter clone</title>
+    <title>Twitter Clone</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Twitter clone</h1>
-    </header>
-    <main>
-      <section id="content">
-        <h2>Latest Tweets</h2>
-        <div id="tweets">
-          <!-- Tweets will be dynamically loaded here -->
-        </div>
-      </section>
-    </main>
-    <footer>
-      <p>&copy; 2024 Twitter Signals</p>
-    </footer>
+    <div class="container">
+      <h1>Twitter Clone</h1>
+      <div>
+        <label for="users">Select User:</label>
+        <select id="users"></select>
+      </div>
+      <div id="posts-container">
+        <h2>Posts</h2>
+        <ul id="posts"></ul>
+      </div>
+      <div id="comments-container">
+        <h2>Comments</h2>
+        <ul id="comments"></ul>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
