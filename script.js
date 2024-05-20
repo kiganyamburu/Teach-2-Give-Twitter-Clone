@@ -35,7 +35,7 @@ const createCommentDiv = (comment) => {
   const likeCount = createElement("p");
 
   commentDiv.classList.add("comment");
-  image.setAttribute("src", "profile.jpeg");
+  image.setAttribute("src", "profile.png");
   twitterVerified.setAttribute("src", "verify.png");
   twitterVerified.classList.add("icon");
   twitterIcon.setAttribute("src", "twitter.png");
@@ -124,7 +124,7 @@ const createPostDiv = (post) => {
   const likeCount = createElement("p");
 
   postDiv.classList.add("post");
-  image.setAttribute("src", "profile.jpeg");
+  image.setAttribute("src", "profile.png");
   twitterVerified.setAttribute("src", "verify.png");
   twitterVerified.classList.add("icon");
   twitterIcon.setAttribute("src", "twitter.png");
@@ -209,7 +209,7 @@ const displayUser = (user) => {
   const locationIcon = createElement("ion-icon");
   const locationName = createElement("p");
 
-  image.setAttribute("src", "profile.jpeg");
+  image.setAttribute("src", "profile.png");
   userDiv.setAttribute("id", "current-user");
   locationIcon.setAttribute("name", "location-sharp");
 
