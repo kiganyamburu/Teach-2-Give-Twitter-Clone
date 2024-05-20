@@ -1,54 +1,118 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+* {
   margin: 0;
-  padding: 20px;
-}
-
-.container {
-  max-width: 800px;
-  margin: auto;
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1,
-h2 {
-  color: #333;
-}
-
-select,
-ul {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-ul {
-  list-style-type: none;
   padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  color: black;
+  background-color: transparent;
+  font-size: 1rem;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
 }
 
-li {
-  margin: 10px 0;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 6rem;
+  background-color: #1da1f2;
+}
+header p,
+header label {
+  color: white;
 }
 
-.bar-one > nav {
-  background-color: #4d9feb;
-  color: #fff;
-  padding: 10px;
-  height: 100%;
-  width: 100%;
+main {
+  padding-top: 4rem;
+  background-image: url("background.jpg");
+  background-position: top;
+  background-size: 100% 12rem;
+  background-repeat: no-repeat;
+}
+#postsComments {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
 }
 
-.image img img {
-  width: 100%;
-  height: 100%;
+#users {
+  background-color: white;
+  padding: 0.8rem 0 0.8rem 2rem;
+  border-radius: 0.2rem;
+}
+#current-user {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+}
+#current-user > img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+}
+#current-user > div {
+  display: flex;
+}
+
+.icon {
+  width: 1rem;
+  height: auto;
+}
+
+#posts,
+#comments {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 50%;
+}
+.post,
+.comment {
+  border-radius: 0.2rem;
+  display: flex;
+  gap: 1rem;
+}
+.post > img,
+.comment > img {
+  width: 4rem;
+  height: auto;
+  border-radius: 0.4rem;
+}
+.post-content > div:first-child,
+.comment-content > div:first-child {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.post-content > div:last-child,
+.comment-content > div:last-child {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 2rem;
+}
+.post-content > div:last-child > div,
+.comment-content > div:last-child > div {
+  display: flex;
+  gap: 0.5rem;
+}
+.post .post-title {
+  font-weight: bold;
+}
+.post:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.comment-content > div:last-child {
+  border-top: 0.1rem solid #e5e7eb;
+  padding-top: 0.5rem;
 }
